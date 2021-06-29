@@ -1,0 +1,22 @@
+{
+  "721": {
+    "3b3a24c169df8e427b2318268587796d880cfb62f96bedfb3b88cdb0": {
+      "ADAMakerSpaceContributorCoin": {
+        "image": "ipfs://QmW5jQ2jLMHyHasYrDgqs1Lr9GsU3noRZMfjLkfNmz5T4e",
+        "name": "ADA MakerSpace Contributor Coin",
+        "description": "Earned by contributing to ADA MakerSpace Hackathons",
+        "supply": "Max Supply: 1,000,000",
+        "UseCases": [
+          "Use at ADA MakerSpace Shop in Cornucopias - The Island game",
+          "Trade with others playing in Cornucopias - The Island game"
+        ],
+        "ticker": "CTC",
+        "type": "UTILITY",
+        "minted-by": "ADAMaker.Space",
+        "site": "https://adamaker.space",
+        "twitter": "https://twitter.com/AdaMakerspace",
+        "copyright": "Copyright 2021"
+      }
+    }
+  }
+}
