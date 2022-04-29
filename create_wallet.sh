@@ -16,10 +16,10 @@ cardano-cli address key-gen --verification-key-file ${NAME}_payment.vkey --signi
 # echo "Generating Payment/Enterprise address"/
 cardano-cli stake-address key-gen --verification-key-file ${NAME}_stake.vkey --signing-key-file ${NAME}_stake.skey
 # echo "Payment/Enterprise address:"
-cardano-cli address build --payment-verification-key-file ${NAME}_payment.vkey --mainnet | tee ${NAME}_payment.addr
+cardano-cli address build --payment-verification-key-file ${NAME}_payment.vkey --testnet-magic 1097911063 | tee ${NAME}_payment.addr
 # echo "Base address:"
-cardano-cli address build --payment-verification-key-file ${NAME}_payment.vkey --stake-verification-key-file ${NAME}_stake.vkey --mainnet | tee ${NAME}_base.addr
+cardano-cli address build --payment-verification-key-file ${NAME}_payment.vkey --stake-verification-key-file ${NAME}_stake.vkey --testnet-magic 1097911063 | tee ${NAME}_base.addr
 # echo "Reward address:"
-cardano-cli stake-address build --stake-verification-key-file ${NAME}_stake.vkey --mainnet | tee ${NAME}_reward.addr
+cardano-cli stake-address build --stake-verification-key-file ${NAME}_stake.vkey --testnet-magic 1097911063 | tee ${NAME}_reward.addr
 # echo "Create QR Code"
 qr $(cat ${NAME}_base.addr) > ${NAME}"_qrcode.png"
