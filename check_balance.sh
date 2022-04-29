@@ -16,5 +16,5 @@ SENDER_ADDR=$(cat ${NAME}/${NAME}_base.addr)
 echo "Getting UTxO"
 cardano-cli query utxo \
 --cardano-mode \
---testnet-magic 1097911063 \
+--mainnet \
 --address ${SENDER_ADDR}

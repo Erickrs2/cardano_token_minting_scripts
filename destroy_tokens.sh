@@ -28,14 +28,14 @@ cd transaction
 # protocol
 echo "Getting protocol parameters"
 cardano-cli query protocol-parameters \
---testnet-magic 1097911063 \
+--mainnet \
 --out-file protocol.json
 
 # get utxo
 echo "Getting utxo"
 cardano-cli query utxo \
 --cardano-mode \
---testnet-magic 1097911063 \
+--mainnet \
 --address ${SENDER_ADDR} \
 --out-file utxo.json
 
@@ -50,7 +50,7 @@ echo $HEXTXIN
 
 # Next tip before no transaction
 echo "Getting chain tip"
-cardano-cli query tip testnet-magic 1097911063 --out-file tip.json
+cardano-cli query tip --mainnet --out-file tip.json
 TIP=$(jq .slot tip.json)
 echo $TIP
 DELTA=200000
@@ -72,7 +72,7 @@ FEE=$(cardano-cli transaction calculate-min-fee \
 --tx-in-count ${TXNS} \
 --tx-out-count 1 \
 --witness-count 3 \
---testnet-magic 1097911063 \
+--mainnet \
 --protocol-params-file protocol.json \
 | tr -dc '0-9')
 
@@ -96,11 +96,11 @@ cardano-cli transaction sign \
 --tx-body-file tx.raw \
 --signing-key-file "../minter/minter_payment.skey" \
 --signing-key-file "../policy/policy.skey" \
---testnet-magic 1097911063 \
+--mainnet \
 --out-file tx.signed
 
 # # ###### THIS MAKES IT LIVE #####################################################
 # cardano-cli transaction submit \
 # --tx-file tx.signed \
-# --testnet-magic 1097911063
+# --mainnet
 # # ###############################################################################
