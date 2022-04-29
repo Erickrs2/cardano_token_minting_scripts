@@ -37,14 +37,14 @@ cd transaction
 # protocol
 echo "Getting protocol parameters"
 cardano-cli query protocol-parameters \
---mainnet \
+--testnet-magic 1097911063 \
 --out-file protocol.json
 
 # get utxo
 echo "Getting utxo"
 cardano-cli query utxo \
 --cardano-mode \
---mainnet \
+--testnet-magic 1097911063 \
 --address ${SENDER_ADDR} \
 --out-file utxo.json
 
@@ -58,7 +58,7 @@ echo "ADA" ${ADA_BALANCE}
 
 # Next tip before no transaction
 echo "Getting chain tip"
-cardano-cli query tip --mainnet --out-file tip.json
+cardano-cli query tip --testnet-magic 1097911063 --out-file tip.json
 TIP=$(jq .slot tip.json)
 DELTA=200000
 FINALTIP=$(( ${DELTA} + ${TIP} ))
@@ -78,7 +78,7 @@ FEE=$(cardano-cli transaction calculate-min-fee \
 --tx-in-count ${TXNS} \
 --tx-out-count 2 \
 --witness-count 3 \
---mainnet \
+--testnet-magic 1097911063 \
 --protocol-params-file protocol.json \
 | tr -dc '0-9')
 
@@ -100,12 +100,12 @@ echo "Signing Transaction"
 cardano-cli transaction sign \
 --tx-body-file tx.raw \
 --signing-key-file "../minter/minter_payment.skey" \
---mainnet \
+--testnet-magic 1097911063 \
 --out-file tx.signed
 
 # ###### THIS MAKES IT LIVE #####################################################
 # echo "submitting transaction"
 # cardano-cli transaction submit \
 # --tx-file tx.signed \
-# --mainnet
+# --testnet-magic 1097911063
 # ##############################################################################
