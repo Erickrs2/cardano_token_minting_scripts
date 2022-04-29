@@ -114,8 +114,8 @@ cardano-cli transaction sign \
 --out-file tx.signed
 
 # ###### THIS MAKES IT LIVE #####################################################
-# echo "Submitting transaction"
-# cardano-cli transaction submit \
-# --tx-file tx.signed \
-# --testnet-magic 1097911063
+echo "Submitting transaction"
+cardano-cli transaction submit \
+--tx-file tx.signed \
+--testnet-magic 1097911063
 # ###############################################################################

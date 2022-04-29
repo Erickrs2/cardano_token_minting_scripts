@@ -7,9 +7,9 @@ NAME="minter"
 SENDER_ADDR=$(cat ${NAME}/${NAME}_base.addr)
 RECEIVER_ADDR=$(cat receiver.addr)
 POLICY_ID=$(cat policy/policy.id)
-ASSET_NAME=$(echo -n "IntiTech" | xxd -ps | tr -d '\n')
+ASSET_NAME=$(echo -n "INTITECH" | xxd -ps | tr -d '\n')
 # # FT minting string
-MINT="2021 ${POLICY_ID}.${ASSET_NAME}"
+MINT="10000 ${POLICY_ID}.${ASSET_NAME}"
 # # NFT minting string
 # MINT=""
 # for i in $(seq -f "%05g" 1 10)
@@ -104,8 +104,8 @@ cardano-cli transaction sign \
 --out-file tx.signed
 
 # ###### THIS MAKES IT LIVE #####################################################
-# echo "submitting transaction"
-# cardano-cli transaction submit \
-# --tx-file tx.signed \
-# --testnet-magic 1097911063
+echo "submitting transaction"
+cardano-cli transaction submit \
+--tx-file tx.signed \
+--testnet-magic 1097911063
 # ##############################################################################
