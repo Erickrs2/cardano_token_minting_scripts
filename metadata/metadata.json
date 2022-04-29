@@ -1,21 +1,20 @@
 {
   "721": {
-    "3b3a24c169df8e427b2318268587796d880cfb62f96bedfb3b88cdb0": {
-      "ADAMakerSpaceContributorCoin": {
-        "image": "ipfs://QmW5jQ2jLMHyHasYrDgqs1Lr9GsU3noRZMfjLkfNmz5T4e",
-        "name": "ADA MakerSpace Contributor Coin",
-        "description": "Earned by contributing to ADA MakerSpace Hackathons",
-        "supply": "Max Supply: 1,000,000",
+    "9501a2923aec2a042e58dcf16fdd16a7f80e0c69bb6202be181ea499": {
+      "INTITECH": {
+        "image": "ipfs://QmabjigtnwTDgjbX9NKwUixTu2FFMTN8NBV2qakynXBze4",
+        "name": "INTITECH",
+        "description": "Earned by generating solar power",
+        "supply": "proportional to solar assets",
         "UseCases": [
-          "Use at ADA MakerSpace Shop in Cornucopias - The Island game",
-          "Trade with others playing in Cornucopias - The Island game"
-        ],
-        "ticker": "CTC",
+          "Solar dividens"
+                  ],
+        "ticker": "INTI",
         "type": "UTILITY",
-        "minted-by": "ADAMaker.Space",
-        "site": "https://adamaker.space",
-        "twitter": "https://twitter.com/AdaMakerspace",
-        "copyright": "Copyright 2021"
+        "minted-by": "INTITECH",
+        "site": "https://www.intitech.com.br",
+        "twitter": "",
+        "copyright": "Copyright 2022"
       }
     }
   }

@@ -9,10 +9,10 @@ SENDER_ADDR=$(cat ${NAME}/${NAME}_base.addr)
 # Policy and Assetname for NFT Here
 POLICY_ID=$(cat policy/policy.id)
 # Change this to your asset name
-ASSET_NAME=$(echo -n "IntiTech" | xxd -ps | tr -d '\n')
+ASSET_NAME=$(echo -n "INTITECH" | xxd -ps | tr -d '\n')
 # Create the minting string
 # FT
-MINT="2021 ${POLICY_ID}.${ASSET_NAME}"
+MINT="10000 ${POLICY_ID}.${ASSET_NAME}"
 # NFT
 # MINT=""
 # for i in $(seq -f "%05g" 1 10)
