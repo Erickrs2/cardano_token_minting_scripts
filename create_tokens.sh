@@ -9,7 +9,7 @@ SENDER_ADDR=$(cat ${NAME}/${NAME}_base.addr)
 # Policy and Assetname for NFT Here
 POLICY_ID=$(cat policy/policy.id)
 # Change this to your asset name
-ASSET_NAME="ADAMakerSpaceContributorCoin"
+ASSET_NAME=$(echo -n "IntiTech" | xxd -ps | tr -d '\n')
 # Create the minting string
 # FT
 MINT="2021 ${POLICY_ID}.${ASSET_NAME}"
@@ -70,7 +70,6 @@ FINALTIP=$(( ${DELTA} + ${TIP} ))
 
 echo "Building Draft Transaction"
 cardano-cli transaction build-raw \
---mary-era \
 --fee 0 \
 --tx-in $HEXTXIN \
 --tx-out ${SENDER_ADDR}+${BALANCE}+"${MINT}" \
@@ -97,7 +96,6 @@ echo "The change is" ${CHANGE}
 
 echo "Building Raw Transaction"
 cardano-cli transaction build-raw \
---mary-era \
 --fee $FEE \
 --tx-in $HEXTXIN \
 --tx-out ${SENDER_ADDR}+${CHANGE}+"${MINT}" \
