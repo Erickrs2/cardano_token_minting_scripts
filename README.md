@@ -1,4 +1,4 @@
-# cardano_minting_scripts111
+# cardano_minting_scripts2
 
 An image can be added to the ipfs using blockfrost.
 
