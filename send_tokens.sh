@@ -7,7 +7,7 @@ NAME="minter"
 SENDER_ADDR=$(cat ${NAME}/${NAME}_base.addr)
 RECEIVER_ADDR=$(cat receiver.addr)
 POLICY_ID=$(cat policy/policy.id)
-ASSET_NAME="ADAMakerSpaceContributorCoin"
+ASSET_NAME=$(echo -n "IntiTech" | xxd -ps | tr -d '\n')
 # # FT minting string
 MINT="2021 ${POLICY_ID}.${ASSET_NAME}"
 # # NFT minting string
@@ -66,7 +66,6 @@ echo $FINALTIP
 
 echo "Building Draft Transaction"
 cardano-cli transaction build-raw \
---mary-era \
 --fee 0 \
 --tx-in $HEXTXIN \
 --tx-out ${RECEIVER_ADDR}+${ADA_BALANCE}+"${MINT}" \
@@ -91,7 +90,6 @@ echo "The change is" ${CHANGE}
 
 echo "Building Raw Transaction"
 cardano-cli transaction build-raw \
---mary-era \
 --fee $FEE \
 --tx-in $HEXTXIN \
 --tx-out ${RECEIVER_ADDR}+${CHANGE}+"${MINT}" \

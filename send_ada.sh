@@ -55,7 +55,6 @@ FINALTIP=$(( ${DELTA} + ${TIP} ))
 
 echo "Building Draft Transaction"
 cardano-cli transaction build-raw \
---mary-era \
 --fee 0 \
 --tx-in $HEXTXIN \
 --tx-out ${RECEIVER_ADDR}+${ADA_BALANCE} \
@@ -80,7 +79,6 @@ echo "The change is" ${CHANGE}
 
 echo "Building Raw Transaction"
 cardano-cli transaction build-raw \
---mary-era \
 --fee $FEE \
 --tx-in $HEXTXIN \
 --tx-out ${RECEIVER_ADDR}+${CHANGE} \
