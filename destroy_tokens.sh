@@ -50,7 +50,7 @@ echo $HEXTXIN
 
 # Next tip before no transaction
 echo "Getting chain tip"
-cardano-cli query tip testnet-magic 1097911063 --out-file tip.json
+cardano-cli query tip --testnet-magic 1097911063 --out-file tip.json
 TIP=$(jq .slot tip.json)
 echo $TIP
 DELTA=200000
