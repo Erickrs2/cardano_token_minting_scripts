@@ -15,12 +15,27 @@ cardano-cli address key-gen \
     --verification-key-file policy.vkey \
     --signing-key-file policy.skey
 
-# Create policy script file
+# Create policy script file (FT)
 jq -n '{scripts: [$ARGS.named], type: "all"}' \
   --arg keyHash "$(cardano-cli address key-hash --payment-verification-key-file policy.vkey)" \
   --arg type "sig" \
   >> policy.script
 
+# Create policy script file (NFT)
+# echo "{" >> policy.script
+# echo "  \"type\": \"all\"," >> policy.script 
+# echo "  \"scripts\":" >> policy.script 
+# echo "  [" >> policy.script 
+# echo "   {" >> policy.script 
+# echo "     \"type\": \"before\"," >> policy.script 
+# echo "     \"slot\": $(expr $(cardano-cli query tip --testnet-magic 1097911063 | jq .slot?) + 10000)" >> policy.script
+# echo "   }," >> policy.script 
+# echo "   {" >> policy.script
+# echo "     \"type\": \"sig\"," >> policy.script 
+# echo "     \"keyHash\": \"$(cardano-cli address key-hash --payment-verification-key-file policy.vkey)\"" >> policy.script 
+# echo "   }" >> policy.script
+# echo "  ]" >> policy.script 
+# echo "}" >> policy.script
 
 # Create policy ID file
 echo $(cardano-cli transaction policyid --script-file policy.script) >> policy.id
